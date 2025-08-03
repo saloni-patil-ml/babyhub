@@ -1,0 +1,61 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Premium Baby Diapers Pack",
+      "description": "Ultra-soft, super-absorbent diapers with wetness indicator. Pack of 50 diapers.",
+      "price": 899,
+      "category": "Diapers",
+      "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800",
+      "affiliateUrl": "https://www.cuelinks.com/products/premium-baby-diapers",
+      "brand": "BabyComfort"
+    },
+    {
+      "id": "2",
+      "name": "Deluxe Baby Stroller",
+      "description": "Lightweight, foldable stroller with adjustable canopy and storage basket.",
+      "price": 12999,
+      "category": "Strollers",
+      "image": "https://images.unsplash.com/photo-1590122401860-63fd9a49c95f?auto=format&fit=crop&w=800",
+      "affiliateUrl": "https://www.cuelinks.com/products/deluxe-baby-stroller",
+      "brand": "KidsCruiser"
+    },
+    {
+      "id": "3",
+      "name": "Educational Building Blocks Set",
+      "description": "30-piece colorful building blocks set for early learning and development.",
+      "price": 1499,
+      "category": "Toys",
+      "image": "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=800",
+      "affiliateUrl": "https://www.cuelinks.com/products/educational-blocks",
+      "brand": "SmartPlay"
+    },
+    {
+      "id": "4",
+      "name": "Baby Care Essential Kit",
+      "description": "Complete baby care kit including lotion, shampoo, and baby oil.",
+      "price": 1299,
+      "category": "Care",
+      "image": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800",
+      "affiliateUrl": "https://www.cuelinks.com/products/baby-care-kit",
+      "brand": "BabyNaturals"
+    },
+    {
+      "id": "5",
+      "name": "Infant Car Seat",
+      "description": "5-star safety rated infant car seat with side impact protection.",
+      "price": 8999,
+      "category": "Safety",
+      "image": "https://images.unsplash.com/photo-1591106567434-d1c7e55e576b?auto=format&fit=crop&w=800",
+      "affiliateUrl": "https://www.cuelinks.com/products/infant-car-seat",
+      "brand": "SafeRide"
+    }
+  ],
+  "categories": [
+    "Diapers",
+    "Strollers",
+    "Toys",
+    "Care",
+    "Safety"
+  ]
+} 
