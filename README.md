@@ -159,6 +159,8 @@ In a production environment, you would want to:
 - Add more structured data as needed
 - Create an `og-image.jpg` in the public directory
 
+Thanks for reading.
+
 ## License
 
 MIT
