@@ -3,9 +3,17 @@
 import { useState } from 'react';
 import { getFAQAnswer } from '@/utils/api';
 
+// Define a new type for the state to handle both success and error cases
+type AnswerState = {
+  answer: string;
+  confidence?: number;
+} | {
+  error: string;
+} | null;
+
 export default function FAQSection() {
   const [question, setQuestion] = useState('');
-  const [answer, setAnswer] = useState<any>(null);
+  const [answer, setAnswer] = useState<AnswerState>(null); // Use the new type
   const [loading, setLoading] = useState(false);
   const [language, setLanguage] = useState<'en' | 'hi'>('en');
 
@@ -16,9 +24,11 @@ export default function FAQSection() {
     try {
       setLoading(true);
       const response = await getFAQAnswer(question, language);
+      // Assuming getFAQAnswer returns an object like { answer: '...', confidence: 85 }
       setAnswer(response);
     } catch (err) {
       console.error(err);
+      // This is now a valid state to set
       setAnswer({ error: 'Failed to get answer. Please try again.' });
     } finally {
       setLoading(false);
@@ -99,7 +109,8 @@ export default function FAQSection() {
               <h3 className="font-medium text-gray-900">
                 {language === 'en' ? 'Answer:' : 'जवाब:'}
               </h3>
-              {answer.error ? (
+              {/* Type-safe check for the error property */}
+              {'error' in answer ? (
                 <p className="text-red-600 mt-1">{answer.error}</p>
               ) : (
                 <div className="mt-1 space-y-2">
@@ -118,4 +129,4 @@ export default function FAQSection() {
       )}
     </section>
   );
-} 
+}

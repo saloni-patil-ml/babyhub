@@ -1,3 +1,5 @@
+import { Product } from "@/types";
+
 const AI_API_BASE = 'http://127.0.0.1:5001/api';
 
 async function handleResponse(response: Response) {
@@ -37,11 +39,11 @@ export async function getRecommendations(productId: string) {
     }
 
     return data; // Return the entire response object with { recommendations: [...] }
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Failed to fetch recommendations:', error);
     console.error('Error details:', {
-      message: error?.message,
-      stack: error?.stack,
+      message: (error as Error).message,
+      stack: (error as Error).stack,
     });
     return { recommendations: [] }; // Return empty recommendations on error
   }
@@ -59,7 +61,7 @@ export async function getFAQAnswer(question: string, language: string = 'en') {
   }
 }
 
-export async function generateSEO(product: any, language: string = 'en') {
+export async function generateSEO(product: Product, language: string = 'en') {
   try {
     const response = await fetch(`${AI_API_BASE}/generate-seo`, {
       method: 'POST',
@@ -73,7 +75,7 @@ export async function generateSEO(product: any, language: string = 'en') {
   }
 }
 
-export async function analyzeReviews(reviews: any[], language: string = 'en') {
+export async function analyzeReviews(reviews: [], language: string = 'en') {
   try {
     const response = await fetch(`${AI_API_BASE}/analyze-reviews`, {
       method: 'POST',

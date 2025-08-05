@@ -5,15 +5,14 @@ import { formatCurrency } from '@/utils/format';
 import ProductRecommendations from '@/components/ProductRecommendations';
 import { notFound } from 'next/navigation';
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   const { products } = getProducts();
-  const product = products.find(p => p.id === params.id);
+  const product = products.find(p => p.id === id);
 
   if (!product) {
     notFound();
@@ -69,7 +68,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
         {/* Product Recommendations */}
         <div className="bg-white rounded-lg shadow-lg mt-8">
-          <ProductRecommendations productId={product.id} />
+          <ProductRecommendations productId={id} />
         </div>
       </main>
     </div>
@@ -82,4 +81,4 @@ export async function generateStaticParams() {
   return products.map((product) => ({
     id: product.id,
   }));
-} 
+}

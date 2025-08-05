@@ -13,11 +13,6 @@ interface ProductCardProps {
 export default function ProductCard({ product, onSelect, isSelected }: ProductCardProps) {
   const [imageError, setImageError] = useState(false);
 
-  const handleClick = () => {
-    if (onSelect) {
-      onSelect(product.id);
-    }
-  };
 
   return (
     <div 

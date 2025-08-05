@@ -2,12 +2,15 @@ import { NextResponse } from 'next/server';
 import { getProducts } from '@/utils/products';
 
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  req: Request,
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  // Await the params to get the id
+  const { id } = await params;
+
   try {
     const { products } = getProducts();
-    const product = products.find(p => p.id === params.id);
+    const product = products.find(p => p.id === id);
 
     if (!product) {
       return new NextResponse(null, { status: 404 });
@@ -18,4 +21,4 @@ export async function GET(
     console.error('Error fetching product:', error);
     return new NextResponse(null, { status: 500 });
   }
-} 
+}
